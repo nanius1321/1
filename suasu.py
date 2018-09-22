@@ -20,8 +20,8 @@ else:
 
 print ("\n\nLOGINNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\n")
 
-#cl = RIDEN()
-cl = RIDEN(authTokenRFU="EwjA7BGA87lPrc4L0zU9.grzYgOnTdKvSkrQ7FTsKMq.TmsMcUZV6F1pLmV4TxQ5RDSN8NwxUg/x9iFFmCoYF6s=")
+cl = RIDEN()
+#cl = RIDEN(authTokenRFU="EwjA7BGA87lPrc4L0zU9.grzYgOnTdKvSkrQ7FTsKMq.TmsMcUZV6F1pLmV4TxQ5RDSN8NwxUg/x9iFFmCoYF6s=")
 #EwjA7BGA87lPrc4L0zU9.grzYgOnTdKvSkrQ7FTsKMq.TmsMcUZV6F1pLmV4TxQ5RDSN8NwxUg/x9iFFmCoYF6s= #PUYZ
 #Ewf9dhbOZOVz2Tjmxvh3.Ri4/RX6YPvDWVXddSJv8mW.pXW2aITg+vn3GaZlSkonXf8zqwUbbuCfU6/PPo1VfPE= #PUY
 cl.log("YOUR TOKEN : {}".format(str(cl.authToken)))
@@ -37,7 +37,7 @@ RIDEN = RIDENPoll(cl)
 Puy = [cl]
 mid = cl.profile.mid
 PuyBot=[mid]
-Owner=["uac8e3eaf1eb2a55770bf10c3b2357c33"]
+Owner=["ube187443474747c3ec352e7efeb48c1b"]
 PuySekawan = PuyBot + Puy + Owner
 
 offbot = []
@@ -73,9 +73,9 @@ PUYWAIT = {
     "ROM":{},
     "AddMention":True,
     "Admin": {
-        "uac8e3eaf1eb2a55770bf10c3b2357c33":True,
-        "u505653091f686044c7a00d2fb8a8a9fd":True,
-        "ude1ff58ba36c0f45a0eddb0562a7521e":True  #MID ADMIN HERE
+        "ube187443474747c3ec352e7efeb48c1b":True,
+        "ube187443474747c3ec352e7efeb48c1b":True,
+        "ube187443474747c3ec352e7efeb48c1b":True  #MID ADMIN HERE
     },
 }
 
