@@ -4,7 +4,6 @@ from time import sleep
 from bs4 import BeautifulSoup
 from gtts import gTTS
 from googletrans import Translator
-from zalgo_text import zalgo
 from multiprocessing import Pool, Process
 #from ffmpy import FFmpeg
 import time, random, asyncio, timeit, sys, json, codecs, threading, glob, re, string, os, subprocess, six, urllib, urllib3, urllib.parse, ast, pytz, wikipedia, pafy, youtube_dl, atexit
