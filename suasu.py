@@ -1043,7 +1043,7 @@ def RIDEN_FAST_USER(fast):
                                 else:
                                     if i._from == cl.profile.mid:
                                         mid.append(i.id)
-                                        if len(MId) == mes:
+                                        if len(mid) == mes:
                                             break
                             def unsMes(id):
                                 cl.unsendMessage(id)
@@ -1051,7 +1051,7 @@ def RIDEN_FAST_USER(fast):
                                 thread1 = threading.Thread(target=unsMes, args=(i,))
                                 thread1.start()
                                 thread1.join()
-                            cl.sendMessage(to, ' 「 Unsend 」\nSukses mengurungkan {} Pesan.'.format(len(MId)))
+                            cl.sendMessage(to, ' 「 Unsend 」\nSukses mengurungkan {} Pesan.'.format(len(mid)))
                             print ("Unsend All Chat")
 
                         elif PuyText.lower().startswith("cekrobot "):
