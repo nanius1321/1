@@ -1058,14 +1058,14 @@ def RIDEN_FAST_USER(fast):
                             pset = text.split(":")
                             pk = text.replace(pset[0] + ":","")
                             if pk == "on":
-                                if receiver in protect["kick"]:
+                                if kirim in protect["kick"]:
                                     cl.sendText(kirim, "Protect kick already On!")
                                 else:
                                     protect["kick"][kirim] = True
                                     cl.sendText(kirim, "Protect kick set On!")
                             if pk == "off":
-                                if receiver in protect["kick"]:
-                                    del protect["kick"][receiver]
+                                if kirim in protect["kick"]:
+                                    del protect["kick"][kirim]
                                     cl.sendText(kirim, "Protect kick set Off!")
                                 else:
                                     cl.sendText(kirim, "Protect kick already Off!")
