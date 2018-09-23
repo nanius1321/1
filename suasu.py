@@ -469,17 +469,17 @@ def RIDEN_FAST_USER(fast):
                 cl.removeAllMessages()
 
 
-            if fast.type == 19:
-                if fast.param1 in protect["kick"]:
-                    if fast.param2 in PuyBot:
-                        pass
-                    else:
-                        try:
-                            cl.kickoutFromGroup(op.param1, [op.param2])
-                        except:
-                            cl.kickoutFromGroup(op.param1, [op.param2])
-                else:
+        if fast.type == 19:
+            if fast.param1 in protect["kick"]:
+                if fast.param2 in PuyBot:
                     pass
+                else:
+                    try:
+                        cl.kickoutFromGroup(op.param1, [op.param2])
+                    except:
+                        cl.kickoutFromGroup(op.param1, [op.param2])
+            else:
+                pass
 #------------------- ( 2 ) ------------------------- PEMBATAS SCRIP ------------------------------------------------#
 
         if fast.type == 26:
@@ -1055,8 +1055,8 @@ def RIDEN_FAST_USER(fast):
                                 if target not in PuyBot:
                                     cl.kickoutFromGroup(kirim, [target])                        
                         elif PuyText.lower().startswith("pkick"):
-                            pset = text.split(":")
-                            pk = text.replace(pset[0] + ":","")
+                            pset = PuyText.split(":")
+                            pk = PuyText.lower().replace(pset[0] + ":","")
                             if pk == "on":
                                 if kirim in protect["kick"]:
                                     cl.sendText(kirim, "Protect kick already On!")
