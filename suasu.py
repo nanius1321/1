@@ -1052,23 +1052,23 @@ def RIDEN_FAST_USER(fast):
                             for x in key["MENTIONEES"]:
                                 targets.append(x["M"])
                             for target in targets:
-                                if target not in renBot:
-                                    cl.kickoutFromGroup(receiver, [target])                        
+                                if target not in PuyBot:
+                                    cl.kickoutFromGroup(kirim, [target])                        
                         elif PuyText.lower().startswith("pkick"):
                             pset = text.split(":")
                             pk = text.replace(pset[0] + ":","")
                             if pk == "on":
                                 if receiver in protect["kick"]:
-                                    cl.sendText(receiver, "Protect kick already On!")
+                                    cl.sendText(kirim, "Protect kick already On!")
                                 else:
-                                    protect["kick"][receiver] = True
-                                    cl.sendText(receiver, "Protect kick set On!")
+                                    protect["kick"][kirim] = True
+                                    cl.sendText(kirim, "Protect kick set On!")
                             if pk == "off":
                                 if receiver in protect["kick"]:
                                     del protect["kick"][receiver]
-                                    cl.sendText(receiver, "Protect kick set Off!")
+                                    cl.sendText(kirim, "Protect kick set Off!")
                                 else:
-                                    cl.sendText(receiver, "Protect kick already Off!")
+                                    cl.sendText(kirim, "Protect kick already Off!")
 
                         elif PuyText.lower().startswith("cekrobot "):
                             if msg.toType == 2:
