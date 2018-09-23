@@ -1046,6 +1046,7 @@ def RIDEN_FAST_USER(fast):
                                      pass
 
                         elif PuyText.lower().startswith("!"):
+                         if user in Owner:
                             targets = []
                             key = eval(msg.contentMetadata["MENTION"])
                             key["MENTIONEES"][0]["M"]
@@ -1055,8 +1056,9 @@ def RIDEN_FAST_USER(fast):
                                 if target not in PuyBot:
                                     cl.kickoutFromGroup(kirim, [target])                        
                         elif PuyText.lower().startswith("pkick"):
-                            pset = PuyText.split(":")
-                            pk = PuyText.lower().replace(pset[0] + ":","")
+                         if user in Owner:
+                            pset = text.split(":")
+                            pk = text.replace(pset[0] + ":","")
                             if pk == "on":
                                 if kirim in protect["kick"]:
                                     cl.sendText(kirim, "Protect kick already On!")
