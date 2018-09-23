@@ -604,21 +604,21 @@ def RIDEN_FAST_USER(fast):
                          if user in Owner:
                           if to not in offbot:
                            contact = cl.getContact(user)
-                           cl.sendMessage(kirim, "Puy'z diberhentikan sementara oleh {}".format(contact.displayName) + " di ruangan {}".format(cl.getGroup(to).name))
+                           cl.sendMessage(kirim, "diberhentikan sementara oleh {}".format(contact.displayName) + " di ruangan {}".format(cl.getGroup(to).name))
                            offbot.append(to)
                            print (to)
                           else:
-                           cl.sendMessage(kirim, "Puy'z Telah dimatikan di ruangan {}".format(cl.getGroup(to).name))
+                           cl.sendMessage(kirim, "Telah dimatikan di ruangan {}".format(cl.getGroup(to).name))
 
                         elif PuyText.lower() == "unmute":
                          if user in Owner:
                           if to in offbot:
                            offbot.remove(to)
                            contact = cl.getContact(user)
-                           cl.sendMessage(kirim, "Puy'z dihidupkan kembali oleh {}".format(contact.displayName) + " di ruangan {}".format(cl.getGroup(to).name))
+                           cl.sendMessage(kirim, "dihidupkan kembali oleh {}".format(contact.displayName) + " di ruangan {}".format(cl.getGroup(to).name))
                            print (to)
                           else:
-                           cl.sendMessage(kirim, "Puy'z Telah dihidupkan di ruangan {}".format(cl.getGroup(to).name))
+                           cl.sendMessage(kirim, "Telah dihidupkan di ruangan {}".format(cl.getGroup(to).name))
                         if to in offbot:
                          return
 
@@ -1027,6 +1027,32 @@ def RIDEN_FAST_USER(fast):
                                         cl.sendMessage(kirim, str(ret_))
                                 except Exception as error:
                                      pass
+
+                        elif PuyText.lower().startswith("unsendme"):
+                            args = PuyText.lower().replace("unsendme ","")
+                            mes = 0
+                            #try:
+                            #    mes = int(args[1])
+                            #except:
+                            #    mes = 1
+                            M = cl.talk.getRecentMessagesV2(to, 999)
+                            mid = []
+                            for ind,i in enumerate(M):
+                                if ind == 0:
+                                    pass
+                                else:
+                                    if i._from == cl.profile.mid:
+                                        mid.append(i.id)
+                                        if len(MId) == mes:
+                                            break
+                            def unsMes(id):
+                                cl.unsendMessage(id)
+                            for i in mid:
+                                thread1 = threading.Thread(target=unsMes, args=(i,))
+                                thread1.start()
+                                thread1.join()
+                            cl.sendMessage(to, ' 「 Unsend 」\nSukses mengurungkan {} Pesan.'.format(len(MId)))
+                            print ("Unsend All Chat")
 
                         elif PuyText.lower().startswith("cekrobot "):
                             if msg.toType == 2:
