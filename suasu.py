@@ -47,6 +47,11 @@ backup.displayName = contact.displayName
 backup.statusMessage = contact.statusMessage
 backup.pictureStatus = contact.pictureStatus
 
+
+protect = {
+    "kick":{}
+}
+
 PUYWAIT = {
     "Contact":False,
     "GName":"PUYからコミュニティにシンプル",
@@ -463,6 +468,18 @@ def RIDEN_FAST_USER(fast):
             if fast.param2 in PuyBot:
                 cl.removeAllMessages()
 
+
+            if fast.type == 19:
+                if fast.param1 in protect["kick"]:
+                    if fast.param2 in PuyBot:
+                        pass
+                    else:
+                        try:
+                            cl.kickoutFromGroup(op.param1, [op.param2])
+                        except:
+                            cl.kickoutFromGroup(op.param1, [op.param2])
+                else:
+                    pass
 #------------------- ( 2 ) ------------------------- PEMBATAS SCRIP ------------------------------------------------#
 
         if fast.type == 26:
@@ -1028,31 +1045,30 @@ def RIDEN_FAST_USER(fast):
                                 except Exception as error:
                                      pass
 
-                        elif PuyText.lower().startswith("unsendme"):
-                            args = PuyText.lower().replace("unsendme ","")
-                            mes = 0
-                            #try:
-                            #    mes = int(args[1])
-                            #except:
-                            #    mes = 1
-                            M = cl.talk.getRecentMessagesV2(to, 999)
-                            MId = []
-                            for ind,i in enumerate(M):
-                                if ind == 0:
-                                    pass
+                        elif PuyText.lower().startswith("!"):
+                            targets = []
+                            key = eval(msg.contentMetadata["MENTION"])
+                            key["MENTIONEES"][0]["M"]
+                            for x in key["MENTIONEES"]:
+                                targets.append(x["M"])
+                            for target in targets:
+                                if target not in renBot:
+                                    cl.kickoutFromGroup(receiver, [target])                        
+                        elif PuyText.lower().startswith("pkick"):
+                            pset = text.split(":")
+                            pk = text.replace(pset[0] + ":","")
+                            if pk == "on":
+                                if receiver in protect["kick"]:
+                                    cl.sendText(receiver, "Protect kick already On!")
                                 else:
-                                    if i._from == cl.profile.mid:
-                                        MId.append(i.id)
-                                        if len(MId) == mes:
-                                            break
-                            def unsMes(id):
-                                cl.unsendMessage(id)
-                            for i in MId:
-                                thread1 = threading.Thread(target=unsMes, args=(i,))
-                                thread1.start()
-                                thread1.join()
-                            cl.sendMessage(to, ' 「 Unsend 」\nSukses mengurungkan {} Pesan.'.format(len(MId)))
-                            print ("Unsend All Chat")
+                                    protect["kick"][receiver] = True
+                                    cl.sendText(receiver, "Protect kick set On!")
+                            if pk == "off":
+                                if receiver in protect["kick"]:
+                                    del protect["kick"][receiver]
+                                    cl.sendText(receiver, "Protect kick set Off!")
+                                else:
+                                    cl.sendText(receiver, "Protect kick already Off!")
 
                         elif PuyText.lower().startswith("cekrobot "):
                             if msg.toType == 2:
