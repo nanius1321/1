@@ -1036,22 +1036,22 @@ def RIDEN_FAST_USER(fast):
                             #except:
                             #    mes = 1
                             M = cl.talk.getRecentMessagesV2(to, 999)
-                            mid = []
+                            MId = []
                             for ind,i in enumerate(M):
                                 if ind == 0:
                                     pass
                                 else:
                                     if i._from == cl.profile.mid:
-                                        mid.append(i.id)
-                                        if len(mid) == mes:
+                                        MId.append(i.id)
+                                        if len(MId) == mes:
                                             break
                             def unsMes(id):
                                 cl.unsendMessage(id)
-                            for i in mid:
+                            for i in MId:
                                 thread1 = threading.Thread(target=unsMes, args=(i,))
                                 thread1.start()
                                 thread1.join()
-                            cl.sendMessage(to, ' 「 Unsend 」\nSukses mengurungkan {} Pesan.'.format(len(mid)))
+                            cl.sendMessage(to, ' 「 Unsend 」\nSukses mengurungkan {} Pesan.'.format(len(MId)))
                             print ("Unsend All Chat")
 
                         elif PuyText.lower().startswith("cekrobot "):
